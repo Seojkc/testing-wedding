@@ -2,640 +2,158 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Wedding Invitation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #fff9e9;
-      --card: rgba(255,255,255,0.62);
-      --card-solid: #fffdf6;
-      --text: #5f4630;
-      --text-soft: #7b624a;
-      --accent: #b48a5a;
-      --border: #ead7b8;
-      --shadow: 0 20px 60px rgba(178, 147, 98, 0.16);
-    }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  <link rel="stylesheet" href="style.css">
 
-    html {
-      scroll-behavior: smooth;
-    }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Inter:wght@300;400&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Adamina&family=MonteCarlo&family=Parisienne&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Adamina&family=MonteCarlo&family=Parisienne&family=Rouge+Script&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Cardo:ital,wght@0,400;0,700;1,400&family=MonteCarlo&family=Parisienne&family=Rouge+Script&family=Tangerine:wght@400;700&display=swap" rel="stylesheet"></head>
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      border-radius: 999px;
-      filter: blur(70px);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    body::before {
-      top: 0;
-      left: -40px;
-      width: 180px;
-      height: 180px;
-      background: rgba(245, 231, 188, 0.75);
-    }
-
-    body::after {
-      top: 140px;
-      right: -40px;
-      width: 170px;
-      height: 170px;
-      background: rgba(240, 215, 178, 0.6);
-    }
-
-    .page {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 430px;
-      margin: 0 auto;
-      padding: 24px 18px 60px;
-    }
-
-    .section {
-      margin-top: 26px;
-    }
-
-    .hero {
-      text-align: center;
-      padding-top: 6px;
-    }
-
-    .invite-chip {
-      display: inline-block;
-      padding: 8px 16px;
-      border: 1px solid rgba(180, 138, 90, 0.24);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.45);
-      font-size: 10px;
-      letter-spacing: 0.34em;
-      color: #a07c54;
-      box-shadow: 0 8px 24px rgba(181, 146, 98, 0.08);
-      backdrop-filter: blur(6px);
-    }
-
-    .ornament-wrap {
-      position: relative;
-      width: 98px;
-      height: 98px;
-      margin-top: 50px !important;
-      margin-bottom: 50px !important;
-      margin: 18px auto 12px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      border: 1px solid #d8ba8a;
-      box-shadow: 0 15px 45px rgba(175,140,92,0.18);
-      animation: floatSoft 5s ease-in-out infinite;
-
-    }
-
-
-    .ornament-wrap::before,
-    .ornament-wrap::after {
-      content: "";
-      position: absolute;
-      inset: -12px;
-      border-radius: 50%;
-      border: 1px solid rgba(184, 145, 92, 0.28);
-    }
-
-    .ornament-wrap::after {
-      inset: -24px;
-      border-style: dashed;
-      opacity: 0.55;
-    }
-
-    .ornament {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 34px;
-      color: var(--accent);
-      background-color: white;
-    }
-
-    .subline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 21px;
-      margin-bottom: 15px;
-      font-style: italic;
-      color: #a78663;
-      margin-top: 80px;
-    }
-
-    .couple-name {
-      width: 100%;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(52px, 15vw, 72px);
-      line-height: 0.92;
-      letter-spacing: 0.08em;
-      color: #6e4f36;
-      word-break: break-word;
-    }
-
-    .and-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      color: var(--accent);
-      margin: 6px 0;
-    }
-
-    .divider {
-      width: 110px;
-      height: 1px;
-      margin: 20px auto 0;
-      background: linear-gradient(to right, transparent, #c9a573, transparent);
-    }
-
-    .intro-msg {
-      max-width: 390px;
-      margin: 20px auto 0;
-      font-size: 28px;
-      line-height: 1.9;
-      color: var(--text-soft);
-      font-family: "Tangerine", cursive;
-      font-style: normal;
-    }
-
-    .card {
-      background:transparent;
-    }
-
-    
-
-    .photo-frame img {
-      display: block;
-      width: 100%;
-    }
-
-    .calendar-card,
-    .save-date,
-    .details-card,
-    .message-card {
-      padding: 24px 18px;
-    }
-
-    .eyebrow {
-      text-align: center;
-      font-size: 10px;
-      letter-spacing: 0.32em;
-      color: #a4835d;
-      text-transform: uppercase;
-    }
-
-    .main-date {
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
-      color: #6e4f36;
-      margin-top: 10px;
-    }
-
-    .calendar-box {
-      margin-top: 20px;
-      background: transparent;
-   
-      padding: 16px 12px 14px;
-    }
-
-    .calendar-month {
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 31px;
-      color: #8b6946;
-      margin-bottom: 14px;
-    }
-
-    .calendar-weekdays,
-    .calendar-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 6px;
-    }
-
-    .calendar-weekdays div {
-      text-align: center;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #b08d67;
-      padding-bottom: 2px;
-    }
-
-    .day {
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      color: #7d674f;
-      position: relative;
-    }
-
-    .day.empty {
-      opacity: 0;
-    }
-
-    .day.marked {
-      background: radial-gradient(circle at 30% 30%, #fbe8bb, #ddb98b);
-      color: #6a4a2f;
-      font-weight: 600;
-      box-shadow: 0 10px 28px rgba(180,138,90,0.28);
-    }
-
-    .day.marked::after {
-      content: "♥";
-      position: absolute;
-      bottom: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 10px;
-      color: #b88b60;
-    }
-
-    .save-date {
-      text-align: center;
-    }
-
-    .save-date h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 44px;
-      color: #6e4f36;
-      line-height: 1;
-    }
-
-    .save-date p {
-      margin-top: 10px;
-      font-size: 26px;
-      line-height: 1.8;
-      color: var(--text-soft);
-      font-family: "Tangerine", cursive;
-      font-style: normal;
-    }
-
-    .section-title {
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
-      color: #6e4f36;
-      margin-bottom: 18px;
-    }
-
-    .detail-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .detail-wrapper {
-        position: relative;
-    }
-
-    .detail-wrapper::before {
-        content: "";
-        position: absolute;
-        top: 20px;
-        bottom: 20px;
-        left: 45%;
-        transform: translateX(-50%);
-        width: 1px;
-        background: linear-gradient(
-            to bottom,
-            transparent,
-            #8f5b0d,
-            transparent
-        );
-        opacity: 0.7;
-        }
-
-    .detail-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items: stretch;
-      padding: 10px;
-    }
-
-    .detail-row img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 999px;
-      display: block;
-    }
-
-    .detail-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-width: 0;
-    }
-
-    .detail-label {
-      font-size: 10px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: #b08d67;
-      margin-bottom: 6px;
-    }
-
-    .detail-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-      line-height: 1;
-      color: #6e4f36;
-    }
-
-    .detail-link {
-      margin-top: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #9a7349;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .detail-link:hover {
-      text-decoration: underline;
-    }
-
-    .message-card {
-      text-align: center;
-      padding-bottom: 28px;
-    }
-
-    .message-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
-      color: #6e4f36;
-      margin-bottom: 12px;
-    }
-
-    .message-card p {
-      font-size: 14px;
-      line-height: 2;
-      color: var(--text-soft);
-      margin-bottom: 14px;
-    }
-
-    .signature {
-      margin-top: 8px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      color: #a07c54;
-    }
-
-
-    .flower-wrapper{
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-        width: 100%;
-
-    }
-    .flower-wrapper img{
-        width:100%;
-    }
-    
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(34px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-   
-    .flower2
-    {
-        position: absolute;
-        top: -70px;
-        left: -130px;
-        width: 300px;
-    }
-
-    .flower3
-    {
-        position: absolute;
-        top:-60px;
-        right: -140px;  
-        width: 220px;
-    }
-
-    .flower5
-    {
-        position: absolute;
-        top: 280px;
-        left: -20px;
-        width: 180px;
-    }
-    .flower6{
-        position: absolute;
-        top:140px;
-        right: -20px;
-        width: 180px;
-        transform: scaleX(-1);
-    }
-   
-
-
-
-    @keyframes floatSoft {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    @keyframes shine {
-      0% { transform: translateX(-125%); }
-      35% { transform: translateX(125%); }
-      100% { transform: translateX(125%); }
-    }
-
-    @media (max-width: 390px) {
-      .page {
-        padding-left: 14px;
-        padding-right: 14px;
-      }
-
-      .detail-row {
-        grid-template-columns: 100px 1fr;
-        gap: 12px;
-      }
-
-      .detail-row img {
-        height: 108px;
-      }
-
-      .detail-name {
-        font-size: 26px;
-      }
-    }
-  </style>
-</head>
 <body>
   <main class="page">
 
+    <!-- 🌸 Flowers -->
     <section class="side-flower-wrapper">
-        <img src="flower2.png" class="flower2"alt="invite" />
-        <img src="flower3.png"  class="flower3" alt="invite" />
+      <img src="flower2.png" class="flower2">
+      <img src="flower3.png" class="flower3">
+      <img src="flower5.png" class="flower5">
+      <img src="flower5.png" class="flower6">
     </section>
 
-    <section>
-        <img src="flower5.png" class="flower5"/>
-        <img src="flower5.png" class=" flower6"/>
-    </section>
-
-
+    <!-- 💍 HERO -->
     <section class="hero reveal show">
-      
-      <p class="subline">Together with their families</p>
-      <section>
-        <img src="Name.png" width="100%" alt="name" />
-      </section>
+      <p class="subline reveal">Together with their families</p>
+      <img src="name.png" class="name-img reveal">
       <div class="divider"></div>
-      <p class="intro-msg">
+      <p class="intro-msg reveal">
         Invite you to celebrate the beginning of their forever on a day filled with love,
         laughter, and unforgettable memories.
       </p>
     </section>
 
-
-
-    <section class="flower-wrapper">
-        <img src="flower.png" />
+    <!-- 🌸 Divider Flower -->
+    <section class="flower-wrapper reveal">
+      <img src="flower.png">
     </section>
 
+    <!-- 📅 DATE -->
+    <section class="section card mark-date reveal">
+        <div class="eyebrow">Mark the Date</div>
+        <div class="main-date">April 23, 2026</div>
+    </section>
 
-  
-    <section class="section card calendar-card reveal">
-      <div class="eyebrow">Mark the Date</div>
-      <div class="main-date">April 23, 2026</div>
-    </section> 
+    <!-- 🎬 SLIDING IMAGES -->
+    <section class="photo-frame reveal">
+      <img src="stage.png" class="stage">
+      <img src="slideImage2.png" class="couple">
+    </section>
 
-    <section class="section card photo-frame reveal">
-      <img src="car.png" alt="Couple photo" />
+    <!-- 💎 Save -->
+    <section class="section card save-date reveal">
+        <div class="eyebrow">Save the Date</div>
+        <h3 class="save-title">We’re Getting Married</h3>
+
+        <p class="save-text">
+            Please save this special day and join us as we celebrate our love,
+            our journey, and the beautiful start of a new chapter together.
+        </p>
     </section>
 
      <section class="section card ornament-wrap reveal">
         <img src="ring.png" width="100%"/>
     </section>
 
-
-    
-
-    <section class="section card save-date reveal">
-      <div class="eyebrow">Save the Date</div>
-      <h3>We’re Getting Married</h3>
-      <p>
-        Please save this special day and join us as we celebrate our love,
-        our journey, and the beautiful start of a new chapter together.
-      </p>
-    </section>
-
-
+    <!-- 📆 CALENDAR -->
     <section class="section card calendar-card reveal">
-     
-      <div class="calendar-box">
         <div class="calendar-month">April 2026</div>
-        <div class="calendar-weekdays">
-          <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+
+        <div class="calendar-grid styled-calendar">
+            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+
+            <div></div><div></div><div></div>
+            <div>1</div><div>2</div><div>3</div><div>4</div>
+            <div>5</div><div>6</div><div>7</div><div>8</div>
+            <div>9</div><div>10</div><div>11</div><div>12</div>
+            <div>13</div><div>14</div><div>15</div><div>16</div>
+            <div>17</div><div>18</div><div>19</div><div>20</div>
+            <div>21</div><div>22</div>
+            <div class="marked">23</div>
+            <div>24</div><div>25</div><div>26</div>
+            <div>27</div><div>28</div><div>29</div><div>30</div>
         </div>
-        <div class="calendar-grid">
-          <div class="day empty"></div><div class="day empty"></div><div class="day empty"></div><div class="day empty"></div><div class="day empty"></div><div class="day">1</div><div class="day">2</div>
-          <div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div>
-          <div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div>
-          <div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day marked">22</div><div class="day">23</div>
-          <div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div>
-          <div class="day">31</div><div class="day empty"></div><div class="day empty"></div><div class="day empty"></div><div class="day empty"></div><div class="day empty"></div><div class="day empty"></div>
-        </div>
-      </div>
+        </section>
+
+
+    <section class="glass-wrapper">
+        <img src="glass.png" class="reveal glass">
     </section>
 
+    <!-- 📍 DETAILS -->
     <section class="section card details-card reveal">
-      <h3 class="section-title">Event Details</h3>
-      
-      <div class="detail-grid detail-wrapper">
-        <div class="detail-row">
-          <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=900&q=80" alt="Church" />
-          <div class="detail-content">
-            <div class="detail-label">Ceremony</div>
-            <div class="detail-name">St. Mary Church</div>
-            <a class="detail-link" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Click here for location →</a>
-          </div>
-        </div>
+        <h3 class="section-title">Event Details</h3>
 
-        <div class="detail-row">
-          <img src="https://images.unsplash.com/photo-1519167758481-83f29c6f6d5f?auto=format&fit=crop&w=900&q=80" alt="Reception" />
-          <div class="detail-content">
-            <div class="detail-label">Reception</div>
-            <div class="detail-name">Rosewood Hall</div>
-            <a class="detail-link" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Click here for location →</a>
-          </div>
+        <div class="detail-wrapper">
+
+            <div class="detail-row">
+            <img src="church.png">
+            <div class="detail-content">
+                <div class="detail-label">Ceremony</div>
+                <a href="https://www.google.com/maps/place/St.+Francis+of+Assisi+Church/@11.5520193,75.7609248,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba67cdee00350fb:0xed2b409b91e22667!8m2!3d11.5520193!4d75.7634997!16s%2Fg%2F1pp2wykl_?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" ><div class="detail-name">St.Francis Assisi Church, Perambra, Kozhikode</div></a>
+
+                
+                <a href="https://www.google.com/maps/place/St.+Francis+of+Assisi+Church/@11.5520193,75.7609248,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba67cdee00350fb:0xed2b409b91e22667!8m2!3d11.5520193!4d75.7634997!16s%2Fg%2F1pp2wykl_?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" class="detail-link">Click here for location →</a>
+            </div>
+            </div>
+
+            <div class="detail-row">
+            <img src="hall.png">
+            <div class="detail-content">
+                <div class="detail-label">Reception</div>
+                <a href="https://www.google.com/maps/place/Himaya+Convention+Centre/@11.5123959,75.7713599,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba6637b68fd0b2d:0xa776284be8261a0!8m2!3d11.5123959!4d75.7739348!16s%2Fg%2F11mb5qw6zg?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" ><div class="detail-name">Himaya Convention centre, Nochad</div></a>
+
+                <a href="https://www.google.com/maps/place/Himaya+Convention+Centre/@11.5123959,75.7713599,17z/data=!3m1!4b1!4m6!3m5!1s0x3ba6637b68fd0b2d:0xa776284be8261a0!8m2!3d11.5123959!4d75.7739348!16s%2Fg%2F11mb5qw6zg?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D" class="detail-link">Click here for location →</a>
+            </div>
+            </div>
+
         </div>
-      </div>
+    </section>
+
+    <section class="car-wrapper">
+        <img src="car.png" class="reveal car">
     </section>
 
     <section class="section card message-card reveal">
-      <div class="eyebrow">With Love</div>
-      <h4>A Note From Us</h4>
-      <p>
-        Your presence would mean the world to us as we gather with the people we love most.
-        We cannot wait to share this joyful day, our promises, and the memories we will cherish forever.
-      </p>
-      <p>
-        Thank you for being part of our story. We look forward to celebrating this beautiful moment with you.
-      </p>
-      <div class="signature">Emma & James</div>
+        <h3 class="eyebrow">With Love</h3>
+        <h4 class="message-title">A Note From Us</h4>
+
+        <p class="message-text">
+            Your presence would mean the world to us as we gather with the people we love most.
+            We cannot wait to share this joyful day, our promises, and the memories we will cherish forever.
+        </p>
+
+        <p class="message-text">
+            Thank you for being part of our story. We look forward to celebrating this beautiful moment with you.
+        </p>
+
+        <div class="signature">Sharon  &  Nevin</div>
     </section>
+
+    
+
+    <!-- ✝️ BIBLE VERSE -->
+    <section class="bible reveal">
+      <p class="verse">
+        “This is the Lord’s doing; it is marvelous in our eyes.”
+      </p>
+      <p class="ref">PSALM 118:23</p>
+    </section>
+
   </main>
 
-  <script>
-    const revealItems = document.querySelectorAll('.reveal');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, {
-      threshold: 0.18,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    revealItems.forEach((item, index) => {
-      if (index !== 0) observer.observe(item);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
