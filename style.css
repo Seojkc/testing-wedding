@@ -46,15 +46,18 @@ body::after {
 
 .name-img {
   width: 100%;
-  margin-bottom: 50px;
 }
 
 .subline {
   font-family: 'Cormorant Garamond';
   font-style: italic;
-  margin-top: 120px;
+  margin-top: 160px;
 }
-
+.subline-2 {
+     font-family: 'Cormorant Garamond';
+    font-style: italic;
+    margin-bottom: 50px;
+}
 .intro-msg {
   font-family: 'Tangerine';
   font-size: 28px;
@@ -166,7 +169,7 @@ body::after {
 .detail-row a img {
   width: 100px;
   border-radius: 50%;
-  margin-left: 40px;
+  margin-top: 10px;
 }
 
 .label {
@@ -360,7 +363,7 @@ text-align: center;
     border-radius: 50%;
     border: 1px solid #d8ba8a;
     box-shadow: 0 15px 45px rgba(175,140,92,0.18);
-    animation: floatSoft 5s ease-in-out infinite;
+    animation: floatSoft 2s ease-in-out infinite;
 
 }
 
@@ -379,16 +382,22 @@ a{
     left: 65%;
 }
 
-.car-wrapper{
-    position: relative;
-    height: 40px;
-}
-.car{
-    position: absolute;
-    width: 45vw;
-    left: 5%;
+
+.car-wrapper {
+  position: relative;
+  height: 120px;
+  margin-top: 40px;
+  width: 100%;
 }
 
+.car {
+  position: absolute;
+  width: 45vw;
+  left: -100vw; /* start OFF SCREEN */
+  top: 10px;
+  transform: translateX(0);
+  will-change: transform;
+}
 
 .ornament-wrap::before,
 .ornament-wrap::after {
@@ -414,7 +423,7 @@ a{
 
   @keyframes floatSoft {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      50% { transform: translateY(-15px); }
     }
 
     @keyframes shine {
