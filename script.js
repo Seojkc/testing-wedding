@@ -55,7 +55,7 @@ let autoScrollFrame = null;
 let autoScrollTimeout = null;
 
 const AUTO_SCROLL_DELAY = 1200; // wait a bit after load
-const AUTO_SCROLL_SPEED = 0.35; // px per frame, very slow
+const AUTO_SCROLL_SPEED = 0.5; // px per frame, very slow
 
 function stopAutoScrollForever() {
   if (autoScrollStoppedForever) return;
